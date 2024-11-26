@@ -9,15 +9,15 @@ export default function NavBar() {
 
   return (
     <div>
-        <Grid style={{backgroundColor:'#fdfdfd',border:'0.2vw solid #fdfdfd',width:'full',height:'6vw',paddingLeft:'4vw',paddingRight:'4vw', display:"flex", gridTemplateColumns: 'auto 1fr',alignItems: 'center', gridGap: '1rem',}} gridArea={"header"}>
+        <Grid style={{backgroundColor:'#fdfdfd',border:'2vw solid #fdfdfd',width:'full',height:'8vw',padding:'3vw', display:"flex", gridTemplateColumns: 'auto 1fr',alignItems: 'center', gridGap: '1rem',}} gridArea={"header"}>
             
-            <Box style={{width:'7vw',height:'100%',backgroundColor:'#ffffff', display:"flex", justifyContent:'center',alignItems: 'center',flexGrow: 1}}>
+            <Box style={{width:'8vw',height:'100%',backgroundColor:'#cdcdcd', display:"flex", justifyContent:'center',alignItems: 'center',marginLeft:'3vw'}}>
                 <Link href="/" passHref>
-                    <Image src="/LOGO_NOVE_QUADRADO_1.png" alt='Logo Nove Filmes' width={110} height={110} style={{objectFit:'cover'}}></Image>
+                    <Image src="/LOGO_NOVE_QUADRADO_1.png" alt='Logo Nove Filmes' width={1671} height={1136} style={{objectFit:'cover',aspectRatio:'auto',width:'6.5vw',}}></Image>
                 </Link>
             </Box>
             
-            <Box style={{width:'55%',flexGrow: 0, }}></Box> 
+            <Box style={{width:'55%', }}></Box> 
             
             <EquipamentosDropdown></EquipamentosDropdown>
 
