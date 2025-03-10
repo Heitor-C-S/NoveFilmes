@@ -1,6 +1,6 @@
 import { Container } from "@radix-ui/themes";
 import NavBar from "../components/NavBar/NavBar";
-import Middle from "../components/home/Middle";
+import HomeContent from "./homeContent";
 import Footer from "../components/Footer/Footer";
 
 export default function Page(){
@@ -8,7 +8,7 @@ export default function Page(){
         <div >
             <Container>
                 <NavBar />
-                <Middle />
+                <HomeContent />
                 <Footer />
             </Container>
         </div>
