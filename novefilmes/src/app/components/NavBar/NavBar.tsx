@@ -24,13 +24,13 @@ export default function NavBar() {
 
             <Box className="flex items-center p-[1vw] ">
             <Link href="/quemsomos">
-                        <Heading style={{fontSize:'1.2rem',}}>Quem Somos</Heading>
+                        <Heading className="text-xl">Quem Somos</Heading>
                 </Link>
             </Box>
 
-            <Box style={{display:'flex',justifyContent:"center",}}>
+            <Box className="flex items-center">
                 <Link href="/">
-                        <Heading style={{fontSize:'1.2rem'}}>Estúdio</Heading>                    
+                        <Heading className="text-xl">Estúdio</Heading>                    
                 </Link>
             </Box>
 

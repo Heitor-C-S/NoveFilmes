@@ -11,7 +11,7 @@ export default function EquipamentosDropdown() {
       <DropdownMenu.Trigger asChild>
         <Box className="flex justify-center cursor-pointer">
           <Grid className="flex grid-cols-[auto_1fr] items-center gap-1">
-            <Heading className="text-lg">Equipamentos</Heading>
+            <Heading className="text-xl">Equipamentos</Heading>
             <ChevronDownIcon />
           </Grid>
         </Box>
