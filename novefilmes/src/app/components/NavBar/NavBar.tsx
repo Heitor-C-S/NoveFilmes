@@ -19,8 +19,13 @@ export default function NavBar() {
             </Box>
             
             <Box className=" min-w-[50vw] max-w-[50vw] h-8"></Box> 
-            
-            <EquipamentosDropdown></EquipamentosDropdown>
+
+            <Box className=" flex items-center">
+            <Link href="https://novefilmes.estoquenow.site"> 
+                        <Heading className="text-xl">Equipamentos</Heading>
+            </Link>
+            </Box>
+            {/*}<EquipamentosDropdown></EquipamentosDropdown> {*/}
 
             <Box className="flex items-center p-[1vw] ">
             <Link href="/quemsomos">
