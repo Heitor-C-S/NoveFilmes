@@ -1,13 +1,14 @@
 import React from 'react';
 import Image from 'next/image';
 import {Box,Grid,Text} from '@radix-ui/themes'
+import EquipamentosList from '../components/Lists/EquipamentosList';
 
 export default function HomeContent() {
 
     return(
         <div>
             <Box>
-                <Grid className=" bg-white items-center justify-center flex grid-cols-[auto_1fr] ">
+                <Grid className=" bg-neutral-50 items-center justify-center flex py-20 grid-cols-[auto_1fr] ">
                     
                 <Box className="flex flex-col w-82 items-start ml-10">
                     <Text className="text-8xl font-bold">nove filmes</Text>
@@ -23,6 +24,7 @@ export default function HomeContent() {
                         width:'60%',
                         }}></Image>
                 </Grid>
+                <EquipamentosList/>
             </Box>
         </div>
     );

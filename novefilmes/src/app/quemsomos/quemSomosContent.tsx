@@ -1,4 +1,4 @@
-import React from 'react';
+  import React from 'react';
 import {Box,Grid,Text} from '@radix-ui/themes'
 
 export default function QuemSomosContent() {

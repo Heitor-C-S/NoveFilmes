@@ -10,7 +10,7 @@ export default function NavBar() {
 
   return (
     <div>
-        <Grid className="flex bg-white w-[100%] max-h-10 p-[3vw] pl-20 grid-cols-[auto_1fr] items-center gap-5" gridArea={"header"}>
+        <Grid className="flex bg-neutral-800 w-[100%] max-h-10 p-[3vw] pl-20 grid-cols-[auto_1fr] items-center gap-5" gridArea={"header"}>
             
             <Box className="h-[100%] w-[auto] pl-[3vw]">
                 <Link href="/" passHref>
@@ -22,20 +22,20 @@ export default function NavBar() {
 
             <Box className=" flex items-center">
             <Link href="https://novefilmes.estoquenow.site"> 
-                        <Heading className="text-xl">Equipamentos</Heading>
+                        <Heading className="text-xl text-white">Equipamentos</Heading>
             </Link>
             </Box>
-            {/*}<EquipamentosDropdown></EquipamentosDropdown> {*/}
+            {/*}<EquipamentosDropdown></EquipamentosDropdown> not necessary for now{*/}
 
             <Box className="flex items-center p-[1vw] ">
             <Link href="/quemsomos">
-                        <Heading className="text-xl">Quem Somos</Heading>
+                        <Heading className="text-xl text-white">Quem Somos</Heading>
                 </Link>
             </Box>
 
             <Box className="flex items-center">
                 <Link href="/">
-                        <Heading className="text-xl">Estúdio</Heading>                    
+                        <Heading className="text-xl text-white">Estúdio</Heading>                    
                 </Link>
             </Box>
 
