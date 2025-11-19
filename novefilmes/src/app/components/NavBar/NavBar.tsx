@@ -7,54 +7,49 @@ import Link from "next/link";
 
 export default function NavBar() {
   return (
-    <div>
-      <Grid
-        className="flex bg-neutral-800  max-h-10 p-[3vw] pl-20 grid-cols-[auto_1fr] items-center gap-5 hover:backdrop-contrast-50"
-        gridArea={"header"}
-      >
-        <Box className="h-[100%] w-[auto] pl-[3vw]">
-          <Link href="/" passHref>
-            <Image
-              src="/LOGO_NOVE_QUADRADO_1.png"
-              alt="Logo Nove Filmes"
-              width={1671}
-              height={1136}
-              style={{
-                objectFit: "cover",
-                aspectRatio: "auto",
-                width: "6.5vw",
-              }}
-              className="hover:backdrop-contrast-50"
-            ></Image>
-          </Link>
-        </Box>
+    <Grid
+      className="grid bg-neutral-800 p-4 pl-24 grid-cols-[auto_1fr_auto_auto_auto] items-center gap-8"
+      gridArea={"header"}
+    >
+      {/* Logo container with fixed responsive size */}
+      <Box className="relative w-32 h-24 ">
+        <Link href="/" passHref>
+          <Image
+            src="/LOGO_NOVE_QUADRADO_1.png"
+            alt="Logo Nove Filmes"
+            fill
+            className="object-contain"
+          />
+        </Link>
+      </Box>
 
-        <Box className=" min-w-[50vw] max-w-[50vw] h-8"></Box>
+      {/* Spacer - takes remaining space */}
+      <Box className="flex-1" />
 
-        <Box className=" flex items-center">
-          <Link href="https://novefilmes.estoquenow.site">
-            <Heading className="text-xl text-white hover:text-blue-600 duration-300">
-              Equipamentos
-            </Heading>
-          </Link>
-        </Box>
+      {/* Navigation items - consistent sizing */}
+      <Box className="flex items-center">
+        <Link href="https://novefilmes.estoquenow.site">
+          <Heading className="text-2xl text-white hover:text-blue-600 duration-300">
+            Equipamentos
+          </Heading>
+        </Link>
+      </Box>
 
-        <Box className="flex items-center p-[1vw] ">
-          <Link href="/quemsomos">
-            <Heading className="text-xl text-white hover:text-blue-600 duration-300">
-              Quem Somos
-            </Heading>
-          </Link>
-        </Box>
+      <Box className="flex items-center">
+        <Link href="/quemsomos">
+          <Heading className="text-2xl text-white hover:text-blue-600 duration-300">
+            Quem Somos
+          </Heading>
+        </Link>
+      </Box>
 
-        <Box className="flex items-center">
-          <Link href="/">
-            <Heading className="text-xl text-white hover:text-blue-600 duration-300">
-              Estúdio
-            </Heading>
-          </Link>
-        </Box>
-      </Grid>
-    </div>
+      <Box className="flex items-center pr-6">
+        <Link href="/">
+          <Heading className="text-2xl text-white hover:text-blue-600 duration-300">
+            Estúdio
+          </Heading>
+        </Link>
+      </Box>
+    </Grid>
   );
 }

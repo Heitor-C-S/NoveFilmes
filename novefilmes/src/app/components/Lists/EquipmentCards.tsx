@@ -1,7 +1,7 @@
 "use client";
 
 import React, { ReactNode } from "react";
-import { Grid, Text, Box } from "@radix-ui/themes";
+import { Card, Inset, Text } from "@radix-ui/themes";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -9,83 +9,48 @@ type Props = {
   children?: ReactNode;
   equipmentName: string;
   equipmentURL: string;
-  detailsURL?: string; // URL opcional para o link
+  detailsURL?: string;
 };
 
 export default function EquipmentCards({
   children,
   equipmentName,
   equipmentURL,
-  detailsURL = "#", // valor padrão
+  detailsURL = "#",
 }: Props) {
   return (
-    <Grid
-      className="
-        flex 
-        flex-col 
-        items-center 
-        justify-between 
-        bg-neutral-500 
-        rounded-xl 
-        p-4 
-        shadow-sm 
-        hover:shadow-md 
-        transition-shadow
-      "
-      style={{ width: "300px", height: "350px" }}
+    <Link
+      href={detailsURL}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block group"
     >
-      {/* Nome do equipamento */}
-      <Text
-        as="p"
-        weight="medium"
-        className="
-          text-center 
-          text-2xl
-        "
-      >
-        {equipmentName}
-      </Text>
+      <Card className="bg-neutral-50 rounded-xl overflow-hidden shadow-md transition-all duration-300 border-4 border-neutral-50 hover:border-blue-600 h-full">
+        <Inset
+          clip="padding-box"
+          side="top"
+          className="relative h-72 overflow-hidden"
+        >
+          <Image
+            src={equipmentURL}
+            alt={equipmentName}
+            fill
+            className="object-cover group-hover:scale-110 transition-transform duration-500"
+          />
+        </Inset>
 
-      {/* Imagem */}
-      <Box
-        className="
-          items-center 
-          align-middle 
-          bg-neutral-500 
-          px-10 
-          py-3 
-          rounded-xl
-        "
-      >
-        <Image
-          src={equipmentURL}
-          alt={equipmentName}
-          width={200}
-          height={200}
-          className="
-            object-contain 
-            rounded-lg
-          "
-        />
-      </Box>
+        <div className="p-6">
+          <Text className="block mb-2 group-hover:text-blue-600 transition-colors text-3xl font-bold">
+            {equipmentName}
+          </Text>
 
-      {/* Link "Ver detalhes →" */}
-      <Link
-        href={detailsURL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="
-          text-blue-600 
-          font-semibold 
-          text-xl 
-          hover:underline 
-          focus:outline-none
-        "
-      >
-        Ver detalhes →
-      </Link>
+          {children}
 
-      {children}
-    </Grid>
+          <span className="text-blue-600 text-xl font-semibold group-hover:translate-x-2 transition-transform inline-block">
+            Ver detalhes →
+          </span>
+        </div>
+      </Card>
+    </Link>
   );
 }

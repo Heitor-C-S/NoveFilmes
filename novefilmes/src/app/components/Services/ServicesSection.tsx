@@ -33,7 +33,7 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section className="py-20 px-4 bg-neutral-200 border border-8 border-neutral-500">
+    <section className="py-32 px-4 bg-neutral-200 ">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
