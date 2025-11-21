@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import { Box, Text } from "@radix-ui/themes";
 import EquipamentosList from "../components/Lists/EquipamentosList";
 import ServicesSection from "../components/Services/ServicesSection";
