@@ -144,7 +144,7 @@ export default function FooterForm() {
 
         {/* Enviar */}
         <Form.Submit asChild>
-          <Button className="mt-4 h-12 w-40 rounded-md bg-blue-600 text-white text-xl shadow-lg hover:bg-blue-500 duration-200">
+          <Button className="mt-4 h-12 w-40 rounded-md bg-blue-600 text-white text-xl shadow-lg hover:bg-blue-500 hover:scale-105 duration-200">
             Enviar
           </Button>
         </Form.Submit>

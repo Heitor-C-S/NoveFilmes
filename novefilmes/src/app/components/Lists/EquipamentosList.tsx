@@ -60,13 +60,16 @@ export default function EquipamentosList({ featuredEquipments }: Props) {
         </Grid>
 
         {/* Botão "Ver Todos" */}
-        <Link href="https://novefilmes.estoquenow.site/">
-          <div className="flex justify-center mt-16">
+        <div className="flex justify-center mt-16 ">
+          <Link
+            href="https://novefilmes.estoquenow.site/"
+            className="hover:scale-105 duration-200"
+          >
             <button className="flex items-center justify-center gap-2 px-8 py-4 text-lg font-semibold text-neutral-50 bg-blue-600 rounded-xl hover:bg-blue-500 hover:text-white transition-colors group duration-200">
               Ver Todos os Equipamentos →
             </button>
-          </div>
-        </Link>
+          </Link>
+        </div>
       </div>
     </section>
   );
