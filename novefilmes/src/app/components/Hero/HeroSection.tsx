@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function heroSection() {
   return (
-    <div className="flex flex-row items-center bg-neutral-50 py-40 px-20 gap-32">
+    <div className="flex flex-row items-center bg-gradient-to-r from-neutral-50 to-slate-200 py-40 px-20 gap-32">
       {/* Left side - Text */}
       <Box className="flex-1 max-w-2xl">
         <Text className="text-8xl font-bold block mb-4">nove filmes</Text>

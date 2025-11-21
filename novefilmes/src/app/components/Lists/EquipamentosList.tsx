@@ -21,7 +21,7 @@ export default function EquipamentosList({ featuredEquipments }: Props) {
   if (featuredEquipments.length === 0) return null;
 
   return (
-    <section className="flex flex-col py-20 px-8 bg-neutral-900">
+    <section className="flex flex-col py-20 px-8 bg-gradient-to-b from-zinc-800 to-neutral-900">
       <div className="max-w-8xl mx-auto">
         {/* Título da seção */}
         <motion.div
@@ -51,7 +51,7 @@ export default function EquipamentosList({ featuredEquipments }: Props) {
                 equipmentURL={equipment.imageUrl}
                 detailsURL={equipment.detailsUrl}
               >
-                <p className="text-slate-600 line-clamp-2 mb-4">
+                <p className="text-slate-800 line-clamp-2 mb-4">
                   {equipment.description}
                 </p>
               </EquipmentCards>

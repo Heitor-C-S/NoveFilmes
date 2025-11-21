@@ -25,7 +25,7 @@ export default function EquipmentCards({
       rel="noopener noreferrer"
       className="block group"
     >
-      <Card className="bg-neutral-50 rounded-xl overflow-hidden shadow-md transition-all duration-300 border-4 border-neutral-50 hover:border-blue-600 h-full">
+      <Card className="bg-neutral-100 rounded-xl overflow-hidden shadow-md transition-all duration-300 border-4 border-neutral-50 hover:border-blue-600 h-full">
         <Inset
           clip="padding-box"
           side="top"

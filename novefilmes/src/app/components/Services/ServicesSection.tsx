@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { Text } from "@radix-ui/themes";
 import { motion } from "framer-motion";
 import { Camera, Lightbulb, Boxes, Building2 } from "lucide-react";
 
@@ -33,7 +34,7 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section className="py-32 px-4 bg-neutral-200 ">
+    <section className="bg-gradient-to-br from-sky-500 to-indigo-800 py-32 px-4 ">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -42,10 +43,10 @@ export default function ServicesSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <Text className="text-4xl md:text-5xl text-stone-200 text-shadow-lg/30 font-bold mb-4">
             Nossos Serviços
-          </h2>
-          <p className="text-xl text-slate-600">
+          </Text>
+          <p className="text-xl text-slate-200 text-">
             Equipamentos de ponta com suporte técnico especializado
           </p>
         </motion.div>
@@ -59,13 +60,13 @@ export default function ServicesSection() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
               whileHover={{ y: -8, transition: { duration: 0.2 } }}
-              className="bg-gradient-to-br from-slate-50 to-blue-50 p-8 rounded-xl border-2 border-slate-200 hover:border-blue-300 hover:shadow-xl transition-all cursor-pointer"
+              className="bg-gradient-to-br from-slate-50 to-blue-300 p-8 rounded-xl border-4 border-blue-300 hover:border-blue-600 hover:shadow-xl hover:shadow-blue-900 transition-all cursor-pointer"
             >
               <div className="bg-blue-600 w-14 h-14 rounded-lg flex items-center justify-center mb-4">
                 <service.icon className="h-7 w-7 text-white" />
               </div>
               <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-              <p className="text-slate-600">{service.description}</p>
+              <p className="text-slate-800">{service.description}</p>
             </motion.div>
           ))}
         </div>

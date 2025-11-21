@@ -8,7 +8,7 @@ import Link from "next/link";
 export default function NavBar() {
   return (
     <Grid
-      className="grid bg-neutral-800 p-4 pl-24 grid-cols-[auto_1fr_auto_auto_auto] items-center gap-8"
+      className="grid bg-neutral-800 p-2 pl-24 grid-cols-[auto_1fr_auto_auto_auto] items-center gap-8"
       gridArea={"header"}
     >
       {/* Logo container with fixed responsive size */}
@@ -18,7 +18,7 @@ export default function NavBar() {
             src="/LOGO_NOVE_QUADRADO_1.png"
             alt="Logo Nove Filmes"
             fill
-            className="object-contain"
+            className="object-contain cursor-pointer hover:opacity-70 duration-200"
           />
         </Link>
       </Box>

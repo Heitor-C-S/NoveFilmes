@@ -66,7 +66,6 @@ export default function Footer() {
 
       {/*(Conteúdo Principal do Footer)*/}
       <Box className="flex flex-col items-start bg-neutral-800 text-neutral-300 py-12 px-16 gap-8 ">
-        {/* 👇 MUDANÇA 1: Aumentei o gap-x para 16 (64px) */}
         <Grid className="max-w-7xl mx-auto grid grid-cols-1 xl:grid-cols-12 gap-x-16 gap-y-10">
           {/* --- Column 1: LOGO + SOCIAL --- */}
           <Flex className="flex flex-col items-center xl:items-start xl:col-span-2">
@@ -77,7 +76,7 @@ export default function Footer() {
                   src="/LOGO_NOVE_QUADRADO_1.png"
                   alt="Logo Nove"
                   fill
-                  className="object-contain cursor-pointer hover:opacity-90 duration-200"
+                  className="object-contain cursor-pointer hover:opacity-70 duration-200"
                 />
               </Link>
             </Box>
@@ -133,28 +132,36 @@ export default function Footer() {
               </Link>
             </Box>
           </Flex>
-          {/* --- Column 2: Equipamentos (Mantive começando na col 6) --- */}
-          {/* Como a logo agora termina na col 2, e Equipamentos começa na 6, */}
-          {/* temos as colunas 3, 4 e 5 vazias. É MUITO espaço. */}
-          <Grid className="grid grid-cols my-5 gap-2 grid-cols-1 xl:col-start-6 xl:col-span-2">
+
+          <Grid className="grid grid-cols my-5 gap-2 grid-cols-1 xl:col-start-5 xl:col-span-3">
             <Text className="text-blue-600 duration-200 font-semibold mb-2 text-2xl">
               Equipamentos
             </Text>
-            <Text className="hover:text-blue-600 duration-200 text-xl ">
-              Câmera
-            </Text>
-            <Text className="hover:text-blue-600 duration-200 text-xl ">
-              Iluminação
-            </Text>
-            <Text className="hover:text-blue-600 duration-200 text-xl ">
-              Maquinaria
-            </Text>
-            <Text className="hover:text-blue-600 duration-200 text-xl ">
-              Gerador
-            </Text>
-            <Text className="hover:text-blue-600 duration-200 text-xl ">
-              Movimento
-            </Text>
+            <Link href="" passHref>
+              <Text className="hover:text-blue-600 duration-200 text-xl ">
+                Câmera
+              </Text>
+            </Link>
+            <Link href="" passHref>
+              <Text className="hover:text-blue-600 duration-200 text-xl ">
+                Iluminação
+              </Text>
+            </Link>
+            <Link href="" passHref>
+              <Text className="hover:text-blue-600 duration-200 text-xl ">
+                Maquinaria
+              </Text>
+            </Link>
+            <Link href="" passHref>
+              <Text className="hover:text-blue-600 duration-200 text-xl ">
+                Gerador
+              </Text>
+            </Link>
+            <Link href="" passHref>
+              <Text className="hover:text-blue-600 duration-200 text-xl ">
+                Movimento
+              </Text>
+            </Link>
           </Grid>
 
           {/* --- Column 3: Contact --- */}
@@ -176,14 +183,12 @@ export default function Footer() {
               <Text className="font-semibold text-blue-600 text-xl">
                 Endereço:
               </Text>
-              <Flex className="flex flex-col">
-                <Text className="hover:text-blue-600 duration-200 text-xl cursor-pointer">
-                  Rua Jader de Andrade, 148
-                </Text>
-                <Text className="hover:text-blue-600 duration-200 text-xl cursor-pointer">
-                  Casa Forte, Recife - PE
-                </Text>
-              </Flex>
+              <Link href="https://maps.app.goo.gl/sTyAoXZJhZ2Ph2W9A" passHref>
+                <Flex className="flex flex-col hover:text-blue-600 duration-200 text-xl cursor-pointer">
+                  <Text className="">Rua Jader de Andrade, 148</Text>
+                  <Text className="">Casa Forte, Recife - PE</Text>
+                </Flex>
+              </Link>
             </Flex>
           </Flex>
 
@@ -192,20 +197,26 @@ export default function Footer() {
             <Text className="text-blue-600 duration-200 font-semibold mb-2 text-2xl ">
               Quem Somos
             </Text>
-            <Text className="hover:text-blue-600 duration-200 text-xl ">
-              Missão
-            </Text>
-            <Text className="hover:text-blue-600 duration-200 text-xl ">
-              Valores
-            </Text>
-            <Text className="hover:text-blue-600 duration-200 text-xl ">
-              Estúdio
-            </Text>
+            <Link href="https://novefilmes.estoquenow.site/" passHref>
+              <Text className="hover:text-blue-600 duration-200 text-xl ">
+                Equipamentos
+              </Text>
+            </Link>
+            <Link href="/quemsomos" passHref>
+              <Text className="hover:text-blue-600 duration-200 text-xl ">
+                Sobre nós
+              </Text>
+            </Link>
+            <Link href="/" passHref>
+              <Text className="hover:text-blue-600 duration-200 text-xl ">
+                Estúdio
+              </Text>
+            </Link>
           </Box>
         </Grid>
       </Box>
       {/* COPYRIGHT BAR */}
-      <Box className="bg-neutral-900 text-neutral-50 text-center py-2 text-xl ">
+      <Box className="bg-neutral-900 bg-opacity-98 text-neutral-50 text-center py-2 text-lg ">
         <Text>Copyright © 2025 - Nove Filmes Produções Ltda.</Text>
       </Box>
     </Box>
