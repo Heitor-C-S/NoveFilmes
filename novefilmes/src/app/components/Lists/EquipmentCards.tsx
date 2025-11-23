@@ -19,34 +19,29 @@ export default function EquipmentCards({
   detailsURL = "#",
 }: Props) {
   return (
-    <Link
-      href={detailsURL}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="block group"
-    >
-      <Card className="bg-neutral-100 rounded-xl overflow-hidden shadow-md transition-all duration-300 border-4 border-neutral-50 hover:border-blue-600 h-full">
+    <Link href={detailsURL} target="_blank" rel="noopener noreferrer">
+      <Card className="group bg-neutral-100 rounded-xl overflow-hidden shadow-md transition-all duration-300 border-4 border-neutral-50 hover:border-blue-600 hover:shadow-xl h-full">
         <Inset
           clip="padding-box"
           side="top"
-          className="relative h-72 overflow-hidden"
+          className="relative h-52 overflow-hidden"
         >
           <Image
             src={equipmentURL}
             alt={equipmentName}
             fill
-            className="object-cover group-hover:scale-110 transition-transform duration-500"
+            className="object-cover transition-transform duration-500 group-hover:scale-110"
           />
         </Inset>
 
         <div className="p-6">
-          <Text className="block mb-2 group-hover:text-blue-600 transition-colors text-3xl font-bold">
+          <Text className="block mb-2 text-3xl font-bold transition-colors group-hover:text-blue-600">
             {equipmentName}
           </Text>
 
           {children}
 
-          <span className="text-blue-600 text-xl font-semibold group-hover:translate-x-2 transition-transform inline-block">
+          <span className="text-blue-600 text-xl font-semibold inline-block transition-transform group-hover:translate-x-2">
             Ver detalhes →
           </span>
         </div>

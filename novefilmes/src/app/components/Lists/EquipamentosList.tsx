@@ -1,9 +1,12 @@
 "use client";
 
-import React from "react";
-import { Grid, Link } from "@radix-ui/themes";
+import React, { useCallback } from "react";
+import { Link } from "@radix-ui/themes";
 import { motion } from "framer-motion";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 import EquipmentCards from "./EquipmentCards";
+import { ChevronLeft, ChevronRight } from "lucide-react"; // Se não tiver lucide, veja nota abaixo*
 
 type Equipment = {
   id: string;
@@ -18,54 +21,114 @@ type Props = {
 };
 
 export default function EquipamentosList({ featuredEquipments }: Props) {
+  // Configuração do Carousel (Loop infinito + Autoplay)
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { loop: true, align: "start" },
+    [Autoplay({ delay: 5000, stopOnInteraction: true })], // delay in ms
+  );
+
+  // Funções de navegação manual
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
   if (featuredEquipments.length === 0) return null;
 
   return (
-    <section className="flex flex-col py-20 px-8 bg-gradient-to-b from-zinc-800 to-neutral-900">
-      <div className="max-w-8xl mx-auto">
-        {/* Título da seção */}
+    <section className="flex flex-col py-20 px-4 md:px-8 bg-gradient-to-b from-zinc-700 to-neutral-900 overflow-hidden">
+      <div className="max-w-8xl mx-auto w-full">
+        {/* Header com Título e Botões de Navegação */}
+        <div className="flex flex-col md:flex-row justify-between items-end mb-12 max-w-7xl mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center md:text-left w-full md:w-auto"
+          >
+            <h2 className="text-3xl md:text-5xl font-bold mb-2 text-neutral-50">
+              Equipamentos em Destaque
+            </h2>
+            <p className="text-neutral-400 text-lg">
+              Tecnologia de ponta para sua produção
+            </p>
+          </motion.div>
+
+          {/* Botões de Navegação (Escondidos no mobile, visíveis no desktop) */}
+          <div className="hidden md:flex gap-4 mt-4 md:mt-0">
+            <button
+              onClick={scrollPrev}
+              className="p-3 rounded-full bg-neutral-800 text-neutral-50 border border-neutral-700 hover:bg-blue-600 hover:border-blue-600 transition-all duration-200"
+              aria-label="Anterior"
+            >
+              <ChevronLeft size={24} />
+            </button>
+            <button
+              onClick={scrollNext}
+              className="p-3 rounded-full bg-neutral-800 text-neutral-50 border border-neutral-700 hover:bg-blue-600 hover:border-blue-600 transition-all duration-200"
+              aria-label="Próximo"
+            >
+              <ChevronRight size={24} />
+            </button>
+          </div>
+        </div>
+
+        {/* CARROUSEL WRAPPER */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="max-w-7xl mx-auto relative bg-neutral-600 rounded-xl p-4 "
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-neutral-50">
-            Equipamentos em Destaque
-          </h2>
+          {/* Viewport do Embla (Overflow Hidden necessário) */}
+          <div
+            className="overflow-hidden cursor-grab active:cursor-grabbing"
+            ref={emblaRef}
+          >
+            <div className="flex -ml-6 ">
+              {" "}
+              {/* Margem negativa para compensar o padding do slide */}
+              {featuredEquipments.map((equipment) => (
+                <div
+                  key={equipment.id}
+                  // Classes de responsividade:
+                  // pl-6: Cria o espaço entre os cards
+                  // basis-full: 1 card por vez (Mobile)
+                  // md:basis-1/2: 2 cards (Tablet)
+                  // lg:basis-1/3: 3 cards (Desktop)
+                  className="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_25%] min-w-0 pl-6"
+                >
+                  <div className="h-full">
+                    <EquipmentCards
+                      equipmentName={equipment.name}
+                      equipmentURL={equipment.imageUrl}
+                      detailsURL={equipment.detailsUrl}
+                    >
+                      <p className="text-slate-800 line-clamp-2 mb-4">
+                        {equipment.description}
+                      </p>
+                    </EquipmentCards>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </motion.div>
 
-        {/* Grade de cards */}
-        <Grid className="grid md:grid-cols-2 lg:grid-cols-3 gap-16 max-w-7xl">
-          {featuredEquipments.map((equipment, index) => (
-            <motion.div
-              key={equipment.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-            >
-              <EquipmentCards
-                equipmentName={equipment.name}
-                equipmentURL={equipment.imageUrl}
-                detailsURL={equipment.detailsUrl}
-              >
-                <p className="text-slate-800 line-clamp-2 mb-4">
-                  {equipment.description}
-                </p>
-              </EquipmentCards>
-            </motion.div>
-          ))}
-        </Grid>
-
         {/* Botão "Ver Todos" */}
-        <div className="flex justify-center mt-16 ">
+        <div className="flex justify-center mt-16">
           <Link
             href="https://novefilmes.estoquenow.site/"
-            className="hover:scale-105 duration-200"
+            className="hover:scale-105 duration-200 no-underline"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <button className="flex items-center justify-center gap-2 px-8 py-4 text-lg font-semibold text-neutral-50 bg-blue-600 rounded-xl hover:bg-blue-500 hover:text-white transition-colors group duration-200">
+            <button className="flex items-center justify-center gap-2 px-8 py-4 text-lg font-semibold text-neutral-50 bg-blue-600 rounded-xl hover:bg-blue-500 transition-colors shadow-lg shadow-blue-900/20">
               Ver Todos os Equipamentos →
             </button>
           </Link>
