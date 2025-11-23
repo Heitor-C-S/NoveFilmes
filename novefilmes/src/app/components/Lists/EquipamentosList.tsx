@@ -57,24 +57,6 @@ export default function EquipamentosList({ featuredEquipments }: Props) {
               Tecnologia de ponta para sua produção
             </p>
           </motion.div>
-
-          {/* Botões de Navegação (Escondidos no mobile, visíveis no desktop) */}
-          <div className="hidden md:flex gap-4 mt-4 md:mt-0">
-            <button
-              onClick={scrollPrev}
-              className="p-3 rounded-full bg-neutral-800 text-neutral-50 border border-neutral-700 hover:bg-blue-600 hover:border-blue-600 transition-all duration-200"
-              aria-label="Anterior"
-            >
-              <ChevronLeft size={24} />
-            </button>
-            <button
-              onClick={scrollNext}
-              className="p-3 rounded-full bg-neutral-800 text-neutral-50 border border-neutral-700 hover:bg-blue-600 hover:border-blue-600 transition-all duration-200"
-              aria-label="Próximo"
-            >
-              <ChevronRight size={24} />
-            </button>
-          </div>
         </div>
 
         {/* CARROUSEL WRAPPER */}
@@ -85,6 +67,22 @@ export default function EquipamentosList({ featuredEquipments }: Props) {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="max-w-7xl mx-auto relative bg-neutral-600 rounded-xl p-4 "
         >
+          {/* NAVIGATION BUTTONS - FLOATING OUTSIDE */}
+          <button
+            onClick={scrollPrev}
+            className=" hidden md:flex items-center justify-center absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-16 h-16 rounded-full bg-white/20 backdrop-blur-md border border-white/30 hover:bg-blue-600 hover:border-blue-600 shadow-xl shadow-black/30 transition-all duration-300 text-white z-20 "
+            aria-label="Anterior"
+          >
+            <ChevronLeft size={34} strokeWidth={2.5} />
+          </button>
+
+          <button
+            onClick={scrollNext}
+            className=" hidden md:flex items-center justify-center absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-16 h-16 rounded-full bg-white/20 backdrop-blur-md border border-white/30 hover:bg-blue-600 hover:border-blue-600 shadow-xl shadow-black/30 transition-all duration-300 text-white z-20 "
+            aria-label="Próximo"
+          >
+            <ChevronRight size={34} strokeWidth={2.5} />
+          </button>
           {/* Viewport do Embla (Overflow Hidden necessário) */}
           <div
             className="overflow-hidden cursor-grab active:cursor-grabbing"
