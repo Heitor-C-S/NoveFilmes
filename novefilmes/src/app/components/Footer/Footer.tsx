@@ -45,7 +45,7 @@ export default function Footer() {
                 <Text>Facebook</Text>
               </SocialMediaCard>
             </Link>
-            <Link href="https://wa.me/5581999537989" passHref>
+            <Link href="https://wa.me/5581983897989" passHref>
               <SocialMediaCard bgColor="#25D366" hoverBgColor="#1DA851">
                 <Image
                   src="/icons8-whatsapp.svg"
@@ -171,11 +171,11 @@ export default function Footer() {
             </Text>
 
             <Text className="hover:text-blue-600 duration-200 text-xl cursor-pointer">
-              (81) 9 9953-7989
+              (81) 9 8389-7989
             </Text>
 
             <Text className="hover:text-blue-600 duration-200 text-xl break-words cursor-pointer">
-              contato@novefilmes.com.br
+              novefilmes@gmail.com
             </Text>
 
             {/* Bloco de Endereço */}
